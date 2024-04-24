@@ -43,5 +43,4 @@ jobs:
         with:
           target: gh-pages
         env:
-          GITHUB_TOKEN: ${{ MY_TOKEN }}
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
