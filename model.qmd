@@ -58,7 +58,7 @@ v = VetiverModel(model, model_name = 'penguin_model', prototype_data = X)
 model_board = board_folder("/data/model", allow_pickle_read=True)
 
 # Saving the model to the specified directory
-vetiver_pin_write(model_board, v, "penguin_model")
+vetiver_pin_write(model_board, v)
 ```
 
 ```{python}
