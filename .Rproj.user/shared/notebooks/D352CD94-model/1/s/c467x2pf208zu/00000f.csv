@@ -1,7 +1,7 @@
 "0","print(f""R^2 {model.score(X,y)}"")"
-"0","print(f""Intercept {model.intercept_}"")"
 "1","R^2 0.8555368759537614
 "
+"0","print(f""Intercept {model.intercept_}"")"
 "1","Intercept 2169.2697209394028
 "
 "0","print(f""Columns {X.columns}"")"

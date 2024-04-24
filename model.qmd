@@ -68,6 +68,11 @@ from vetiver import VetiverAPI
 app = VetiverAPI(v, check_prototype=True)
 
 # Run the API
-if __name__ == "__main__":
-    app.run(port=8080)
+#if __name__ == "__main__":
+#    app.run(port=8080)
+```
+
+```{python}
+#from vetiver import prepare_docker
+#prepare_docker(model_board, "penguin_model")
 ```
