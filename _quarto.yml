@@ -7,7 +7,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: eda.qmd
+        text: Penguins EDA
+      - href: model-vetiver.qmd
+        text: Model
 
 format:
   html:

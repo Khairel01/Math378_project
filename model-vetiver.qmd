@@ -5,7 +5,12 @@ format:
     code-fold: true
 ---
 
+```{r}
+library(reticulate)
+```
+
 ```{python}
+from palmerpenguins import penguins
 from pandas import get_dummies
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -18,7 +23,6 @@ from sklearn import preprocessing
 import duckdb
 con = duckdb.connect('my-db.duckdb')
 df = con.execute("SELECT * FROM penguins").fetchdf().dropna()
-con.close()
 
 df.head(3)
 ```
@@ -51,12 +55,8 @@ v = VetiverModel(model, model_name='penguin_model', prototype_data=X)
 ## Save to Board
 
 ```{python}
-import os
 from pins import board_folder
 from vetiver import vetiver_pin_write
-from joblib import dump
-
-
 
 model_board = board_folder("data/model", allow_pickle_read = True)
 vetiver_pin_write(model_board, v)
@@ -67,4 +67,45 @@ vetiver_pin_write(model_board, v)
 ```{python}
 from vetiver import VetiverAPI
 app = VetiverAPI(v, check_prototype = True)
+```
+
+```{python}
+#from vetiver import prepare_docker
+#prepare_docker(b, 'penguin_model')
+```
+
+```{python}
+#import requests
+
+#req_data = {
+ # "bill_length_mm": 0,
+#  "species_Chinstrap": False,
+ # "species_Gentoo": False,
+#  "sex_male": False
+#}
+#req = requests.post('http://127.0.0.1:8080/predict', json = [req_data])
+#res = req.json().get('predict')[0]
+#print(res)
+```
+
+```{python}
+#library(httr2)
+#req <- httr2::request("http://127.0.0.1:8080/predict") |>
+ # httr2::req_body_json(
+  #  list(
+   #   list(
+    #    "bill_length_mm" = 0,
+     #   "species_Chinstrap" = FALSE,
+      #  "species_Gentoo" = FALSE,
+       # "sex_male" = FALSE
+      #)
+    #)
+  #) |>
+  #httr2::req_perform()
+#res <- httr2::resp_body_json(req)$predict[[1]]
+#res
+```
+
+```{python}
+con.close()
 ```

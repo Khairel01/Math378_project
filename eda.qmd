@@ -46,5 +46,5 @@ df %>%
 ```
 
 ```{r}
-DBI::dbDisconnect(con)
+DBI::dbDisconnect(con, shutdown = TRUE)
 ```

@@ -1,11 +1,9 @@
 ---
-title: "Math378_Project_new"
+title: "Math378_Project"
 ---
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-```{r}
-1 + 1
-```
+This is my website created by quarto.
