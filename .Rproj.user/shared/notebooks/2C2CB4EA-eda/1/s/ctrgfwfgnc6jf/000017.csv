@@ -1,4 +1,4 @@
+"0","library(duckdb)"
 "0","con <- DBI::dbConnect(duckdb::duckdb(), dbdir = ""my-db.duckdb"")"
-"0","DBI::dbWriteTable(con, ""penguins"", palmerpenguins::penguins, append = TRUE)"
 "0","df <- dplyr::tbl(con, ""penguins"")"
 "0",""
