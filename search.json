@@ -11,7 +11,7 @@
     "href": "model.html#get-data",
     "title": "Model",
     "section": "Get Data",
-    "text": "Get Data\n\n\nCode\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\ncon.close()\n\ndf.head(3)\n\n\n  species     island  bill_length_mm  ...  body_mass_g     sex  year\n0  Adelie  Torgersen            39.1  ...       3750.0    male  2007\n1  Adelie  Torgersen            39.5  ...       3800.0  female  2007\n2  Adelie  Torgersen            40.3  ...       3250.0  female  2007\n\n[3 rows x 8 columns]"
+    "text": "Get Data\n\n\nCode\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\n\ndf.head(3)\n\n\n  species     island  bill_length_mm  ...  body_mass_g     sex  year\n0  Adelie  Torgersen            39.1  ...       3750.0    male  2007\n1  Adelie  Torgersen            39.5  ...       3800.0  female  2007\n2  Adelie  Torgersen            40.3  ...       3250.0  female  2007\n\n[3 rows x 8 columns]"
   },
   {
     "objectID": "model.html#define-model-and-fit",
@@ -32,14 +32,14 @@
     "href": "model-vetiver.html",
     "title": "Model",
     "section": "",
-    "text": "Code\nfrom pandas import get_dummies\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn import preprocessing"
+    "text": "Code\nlibrary(reticulate)\nCode\nfrom palmerpenguins import penguins\nfrom pandas import get_dummies\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn import preprocessing"
   },
   {
     "objectID": "model-vetiver.html#get-data",
     "href": "model-vetiver.html#get-data",
     "title": "Model",
     "section": "Get Data",
-    "text": "Get Data\n\n\nCode\nimport duckdb\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\ncon.close()\n\ndf.head(3)\n\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007"
+    "text": "Get Data\n\n\nCode\nimport duckdb\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\n\ndf.head(3)\n\n\n  species     island  bill_length_mm  ...  body_mass_g     sex  year\n0  Adelie  Torgersen            39.1  ...       3750.0    male  2007\n1  Adelie  Torgersen            39.5  ...       3800.0  female  2007\n2  Adelie  Torgersen            40.3  ...       3250.0  female  2007\n\n[3 rows x 8 columns]"
   },
   {
     "objectID": "model-vetiver.html#define-model-and-fit",
@@ -53,7 +53,7 @@
     "href": "model-vetiver.html#get-some-information",
     "title": "Model",
     "section": "Get some information",
-    "text": "Get some information\n\n\nCode\nprint(f\"R^2 {model.score(X,y)}\")\nprint(f\"Intercept {model.intercept_}\")\nprint(f\"Columns {X.columns}\")\nprint(f\"Coefficients {model.coef_}\")\n\n\nR^2 0.8555368759537614\nIntercept 2169.2697209394046\nColumns Index(['bill_length_mm', 'species_Chinstrap', 'species_Gentoo', 'sex_male'], dtype='object')\nCoefficients [  32.53688677 -298.76553447 1094.86739145  547.36692408]"
+    "text": "Get some information\n\n\nCode\nprint(f\"R^2 {model.score(X,y)}\")\n\n\nR^2 0.8555368759537614\n\n\nCode\nprint(f\"Intercept {model.intercept_}\")\n\n\nIntercept 2169.2697209393955\n\n\nCode\nprint(f\"Columns {X.columns}\")\n\n\nColumns Index(['bill_length_mm', 'species_Chinstrap', 'species_Gentoo', 'sex_male'], dtype='object')\n\n\nCode\nprint(f\"Coefficients {model.coef_}\")\n\n\nCoefficients [  32.53688677 -298.76553447 1094.86739145  547.36692408]"
   },
   {
     "objectID": "model-vetiver.html#turn-into-vetiver-model",
@@ -67,14 +67,14 @@
     "href": "model-vetiver.html#save-to-board",
     "title": "Model",
     "section": "Save to Board",
-    "text": "Save to Board\n\n\nCode\nimport os\nfrom pins import board_folder\nfrom vetiver import vetiver_pin_write\nfrom joblib import dump\n\n\n\nmodel_board = board_folder(\"data/model\", allow_pickle_read = True)\nvetiver_pin_write(model_board, v)\n\n\nModel Cards provide a framework for transparent, responsible reporting. \n Use the vetiver `.qmd` Quarto template as a place to start, \n with vetiver.model_card()\nWriting pin:\nName: 'penguin_model'\nVersion: 20240425T024732Z-29e57"
+    "text": "Save to Board\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import vetiver_pin_write\n\nmodel_board = board_folder(\"data/model\", allow_pickle_read = True)\nvetiver_pin_write(model_board, v)\n\n\nModel Cards provide a framework for transparent, responsible reporting. \n Use the vetiver `.qmd` Quarto template as a place to start, \n with vetiver.model_card()\nWriting pin:\nName: 'penguin_model'\nVersion: 20240425T031634Z-c7d97"
   },
   {
     "objectID": "model-vetiver.html#turn-model-into-api",
     "href": "model-vetiver.html#turn-model-into-api",
     "title": "Model",
     "section": "Turn model into API",
-    "text": "Turn model into API\n\n\nCode\nfrom vetiver import VetiverAPI\napp = VetiverAPI(v, check_prototype = True)"
+    "text": "Turn model into API\n\n\nCode\nfrom vetiver import VetiverAPI\napp = VetiverAPI(v, check_prototype = True)\n\n\n\n\nCode\n#from vetiver import prepare_docker\n#prepare_docker(b, 'penguin_model')\n\n\n\n\nCode\n#import requests\n\n#req_data = {\n # \"bill_length_mm\": 0,\n#  \"species_Chinstrap\": False,\n # \"species_Gentoo\": False,\n#  \"sex_male\": False\n#}\n#req = requests.post('http://127.0.0.1:8080/predict', json = [req_data])\n#res = req.json().get('predict')[0]\n#print(res)\n\n\n\n\nCode\n#library(httr2)\n#req &lt;- httr2::request(\"http://127.0.0.1:8080/predict\") |&gt;\n # httr2::req_body_json(\n  #  list(\n   #   list(\n    #    \"bill_length_mm\" = 0,\n     #   \"species_Chinstrap\" = FALSE,\n      #  \"species_Gentoo\" = FALSE,\n       # \"sex_male\" = FALSE\n      #)\n    #)\n  #) |&gt;\n  #httr2::req_perform()\n#res &lt;- httr2::resp_body_json(req)$predict[[1]]\n#res\n\n\n\n\nCode\ncon.close()"
   },
   {
     "objectID": "eda.html",
@@ -95,7 +95,7 @@
     "href": "eda.html#penguin-size-vs-mass-by-species",
     "title": "Penguins EDA",
     "section": "Penguin Size vs Mass by Species",
-    "text": "Penguin Size vs Mass by Species\n\n\nCode\ndf %&gt;%\n  ggplot(aes(x = bill_length_mm, y = body_mass_g, color = species)) +\n  geom_point() + \n  geom_smooth(method = \"lm\")\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 8 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 8 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nCode\nDBI::dbDisconnect(con)"
+    "text": "Penguin Size vs Mass by Species\n\n\nCode\ndf %&gt;%\n  ggplot(aes(x = bill_length_mm, y = body_mass_g, color = species)) +\n  geom_point() + \n  geom_smooth(method = \"lm\")\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 8 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 8 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nCode\nDBI::dbDisconnect(con, shutdown = TRUE)"
   },
   {
     "objectID": "about.html",
@@ -107,8 +107,8 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Math378_Project_new",
+    "title": "Math378_Project",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nThis is my website created by quarto."
   }
 ]
