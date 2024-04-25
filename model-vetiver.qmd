@@ -51,10 +51,14 @@ v = VetiverModel(model, model_name='penguin_model', prototype_data=X)
 ## Save to Board
 
 ```{python}
+import os
 from pins import board_folder
 from vetiver import vetiver_pin_write
+from joblib import dump
 
-model_board = board_folder("/data/model", allow_pickle_read = True)
+
+
+model_board = board_folder("data/model", allow_pickle_read = True)
 vetiver_pin_write(model_board, v)
 ```
 
