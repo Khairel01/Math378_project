@@ -5,13 +5,7 @@ format:
     code-fold: true
 ---
 
-```{r}
-library(reticulate)
-```
-
 ```{python}
-import duckdb
-from palmerpenguins import penguins
 from pandas import get_dummies
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -21,7 +15,7 @@ from sklearn import preprocessing
 ## Get Data
 
 ```{python}
-
+import duckdb
 con = duckdb.connect('my-db.duckdb')
 df = con.execute("SELECT * FROM penguins").fetchdf().dropna()
 con.close()
@@ -47,7 +41,26 @@ print(f"Columns {X.columns}")
 print(f"Coefficients {model.coef_}")
 ```
 
+## Turn into Vetiver Model
+
 ```{python}
-#from vetiver import prepare_docker
-#prepare_docker(model_board, "penguin_model")
+from vetiver import VetiverModel
+v = VetiverModel(model, model_name='penguin_model', prototype_data=X)
+```
+
+## Save to Board
+
+```{python}
+from pins import board_folder
+from vetiver import vetiver_pin_write
+
+model_board = board_folder("/data/model", allow_pickle_read = True)
+vetiver_pin_write(model_board, v)
+```
+
+## Turn model into API
+
+```{python}
+from vetiver import VetiverAPI
+app = VetiverAPI(v, check_prototype = True)
 ```
