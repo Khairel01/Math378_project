@@ -49,5 +49,5 @@ print(f"Coefficients {model.coef_}")
 
 ```{python}
 #from vetiver import prepare_docker
-prepare_docker(model_board, "penguin_model")
+#prepare_docker(model_board, "penguin_model")
 ```
