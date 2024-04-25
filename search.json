@@ -67,7 +67,7 @@
     "href": "model-vetiver.html#save-to-board",
     "title": "Model",
     "section": "Save to Board",
-    "text": "Save to Board\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import vetiver_pin_write\n\nmodel_board = board_folder(\"data/model\", allow_pickle_read = True)\nvetiver_pin_write(model_board, v)\n\n\nModel Cards provide a framework for transparent, responsible reporting. \n Use the vetiver `.qmd` Quarto template as a place to start, \n with vetiver.model_card()\nWriting pin:\nName: 'penguin_model'\nVersion: 20240425T033021Z-c7d97"
+    "text": "Save to Board\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import vetiver_pin_write\n\nmodel_board = board_folder(\"data/model\", allow_pickle_read = True)\nvetiver_pin_write(model_board, v)\n\n\nModel Cards provide a framework for transparent, responsible reporting. \n Use the vetiver `.qmd` Quarto template as a place to start, \n with vetiver.model_card()\nWriting pin:\nName: 'penguin_model'\nVersion: 20240425T034151Z-c7d97"
   },
   {
     "objectID": "model-vetiver.html#turn-model-into-api",
@@ -107,8 +107,8 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Math378_Project",
+    "title": "Mohd Khairee’s Math378 Project",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nThis is my website created by quarto."
+    "text": "Welcome to my website, designed to bring to life the innovative practices from the ‘DevOps for Data Science’ book by Alex Gold."
   }
 ]
