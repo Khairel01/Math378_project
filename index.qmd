@@ -1,9 +1,5 @@
 ---
-title: "Math378_Project"
+title: "Mohd Khairee's Math378 Project"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-This is my website created by quarto.
+Welcome to my website, designed to bring to life the innovative practices from the 'DevOps for Data Science' book by Alex Gold.
